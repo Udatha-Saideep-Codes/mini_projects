@@ -5,6 +5,14 @@ ATCD,DBMS,IAI,OS,FPP={},{},{},{},{}
 # subjects are also stored as strings so that they can be displayed while showing subject wise marks
 subjects_as_strings=['ATCD','DBMS','IAI','OS','FPP']
 subjects=[ATCD,DBMS,IAI,OS,FPP]
+def int_error(var):
+    while True:
+        try:
+            x=int(input(f"Enter {var}:"))    
+        except ValueError:
+            print('Enter a valid input!')
+        else:
+            return x
 
 def add_student():
     roll_number=input("Enter the roll number of the student:")
@@ -18,15 +26,7 @@ def add_student():
     #for a new student attendance is 0 initially
     attendance=0
     name=input('Enter name of the student:')
-
-    while(1):
-        try:
-            phone=int(input('Enter phone number of student:'))
-        except ValueError:
-            print('Phone number should be an integer')
-        else:
-            break
-
+    phone=int_error('Phone number')
     students[roll_number]={'name':name,'attendance':attendance,'phone':phone,'subjects':subjects_for_new_student}
     print('Student added')
 
@@ -71,14 +71,7 @@ def display_subject_wise_marks():
             print(f'roll number {roll_number} has got {subject_marks}')
 
 def number_of_students_for_operation():
-    while(1):
-                try:
-                    number_of_students=int(input('Enter number of students:'))
-                except ValueError:
-                    print('Enter a valid number')
-                else:
-                    break
-    return number_of_students
+    number_of_students=int_error('Number of students')
 
 # Display choices and then call the functions
 while(1):
