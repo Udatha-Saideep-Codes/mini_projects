@@ -1,4 +1,4 @@
-month={'12/12/13':([('biscuits',120),('chocolates',240)],360)}
+month={}
 category_total=0
 # categories_and_total={'category':([{expense:(cost_of_expense,date)}],category_total)}
 categories_and_total={}
